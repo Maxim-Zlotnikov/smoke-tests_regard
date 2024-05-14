@@ -28,7 +28,6 @@ class CatalogPage(Base):
     sub_category_button_2 = "//p[text()='Электротранспорт']"
     select_sort_product_2 = "//span[text()='Сначала с низкой ценой']"
     device_type_checkbox = "(//label[@for='id-электросамокат-28760'])[1]"
-    maker_checkbox_1 = "(//label[@for='id-Xiaomi-Xiaomi'])[1]"
     add_to_favorite_1 = "(//button[@aria-label='Добавить в избранное'])[2]"
     add_to_favorite_2 = "(//button[@aria-label='Добавить в избранное'])[1]"
     favorites_button = "//span[text()='Избранное']"
@@ -120,11 +119,6 @@ class CatalogPage(Base):
         return WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, self.device_type_checkbox)))
     # Выбор чекбокса "Тип устройства" - "Электросамокат"
-
-    def get_maker_checkbox_1(self):
-        return WebDriverWait(self.driver, 30).until(
-            EC.element_to_be_clickable((By.XPATH, self.maker_checkbox_1)))
-    # Выбор чекбокса "Производитель" - "Xiaomi"
 
     def get_add_to_favorite_1(self):
         return WebDriverWait(self.driver, 30).until(
@@ -264,11 +258,6 @@ class CatalogPage(Base):
         print("Device Type Filter OK")
         time.sleep(3)
 
-    def click_maker_checkbox_1(self):
-        self.get_maker_checkbox_1().click()
-        print("Maker Filter OK")
-        time.sleep(3)
-
     def click_add_to_favorite_1(self):
         self.get_add_to_favorite_1().click()
         print("Add To Favorites 1 OK")
@@ -351,7 +340,6 @@ class CatalogPage(Base):
         self.click_select_list_product()
         self.click_select_sort_product_2()
         self.click_device_type_checkbox()
-        self.click_maker_checkbox_1()
         self.click_add_to_favorite_1()
         self.click_add_to_favorite_2()
         self.click_favorites_button()
